@@ -164,43 +164,88 @@ void doAction(string action, string currentRoom) {
   }
 
   else if (currentRoom == "yellow") {
-    if(action == "approach") {
+    if (action == "approach") {
       cout << "You approach the earth elemental\n" << endl;
       cout << "\"Hello traveler, what can I assist you with?\"\n" << endl;
-      cout << "\"I need help getting out of here\", you say.\n" << endl; 
-      cout << "\"No problem\", the earth beneath your feet begins to shake and split open, revealing a portal. On the other side you see your home. \n" << endl;
-      cout << "\"Step into the portal and it will take you home\", the earth elemental says.\n" << endl;
-      cout << "You step into the portal and find yourself infront of your home."<< endl;
+      cout << "\"I need help getting out of here\", you say.\n" << endl;
+      cout << "\"No problem\", the earth beneath your feet begins to shake and "
+              "split open, revealing a portal. On the other side you see your "
+              "home. \n"
+           << endl;
+      cout << "\"Step into the portal and it will take you home\", the earth "
+              "elemental says.\n"
+           << endl;
+      cout << "You step into the portal and find yourself infront of your home."
+           << endl;
     }
-  }
-
-  else if (currentRoom == "copper") {
-    cout << "the copper portal" << endl;
-    copperRoom();
-  }
-
-  else if (currentRoom == "silver") {
-    cout << "the silver portal" << endl;
-    silverRoom();
   }
 
   else if (currentRoom == "gold") {
-    cout << "the gold portal" << endl;
-    goldRoom();
+    if (action == "heirloom") {
+      cout << "You give your heirloom to the dragon. The dragon accepts the "
+              "artifact.\n"
+           << endl;
+      cout << "\"For bring me this artifact you may become my rider. Be reborn "
+              "as a dragonborn\", the dragon says.\n"
+           << endl;
+      cout << "A wave of dragon magic washes over you and you are transformed "
+              "into a dragon born. You climb on the dragons back. The dragon "
+              "flies out of the dungeon.\n"
+           << endl;
+
+    }
+
+    else if (action == "sword") {
+      cout << "You pick up the sword and attack the dragon. The blade bounces "
+              "of the tough scalely armor of the dragon. The dragon wakes up "
+              "and breaths fire on you\n"
+           << endl;
+      cout << "You died.\n" << endl;
+    }
+
+    else if (action == "steal") {
+      cout << "You approach the dragon, careful to not make a sound to wake "
+              "the beast. Confident that the dragon will not wake, you begin "
+              "thrusting large hand fulls of treasure into your pocket. A huge "
+              "drop of water splashes onto your head. You look up, finding a "
+              "giant maw of teeth. And then it closes around you, plunging you "
+              "into darkness and pain.\n"
+           << endl;
+      cout << "You died.\n" << endl;
+    }
+
+    string next;
+    cout << "Press a key(s) and hit enter to continue." << endl;
+    cin >> next;
   }
 
   else if (currentRoom == "black") {
-    if(action == "serve") {
+    if (action == "serve") {
       cout << "The necromancer transforms you into a skeleton" << endl;
-    }
-    else if (action == "fight") {
-      cout << "As soon as you choose to fight the necromancer, he blasts you with a ray of death." << endl;
+    } else if (action == "fight") {
+      cout << "As soon as you choose to fight the necromancer, he blasts you "
+              "with a ray of death."
+           << endl;
       cout << "You died." << endl;
     }
   }
 
   else if (currentRoom == "white") {
-    
+    cout << "The statue of the angel comes to life. The water in the fountain "
+            "shifts, revealing a realm of clouds and sunlight. Angels populate "
+            "the sky.\n"
+         << endl;
+
+    cout << "\"You have been choosen to join our ranks, step into the fountain "
+            "an be reborn\", the angel in the center of the fountain says.\n"
+         << endl;
+
+    cout << "You step into the fountain, finding youself in the realm of "
+            "angels. On your back is a pair of wings.\n"
+         << endl;
+    string next;
+    cout << "Press a key(s) and hit enter to continue." << endl;
+    cin >> next;
   }
 }
 
@@ -301,12 +346,17 @@ void blueRoom() {
 void yellowRoom() {
   string action;
   string currentRoom = "yellow";
-  cout << "You enter a room that glows yellow. In your pocket is your family heirloom. In the center of the room is a earth elemental. She smiles at you and waves you closer. Behind you is a glowing grey portal. On the opposite side of the room is a black glowing portal. \n" << endl;
+  cout
+      << "You enter a room that glows yellow. In your pocket is your family "
+         "heirloom. In the center of the room is a earth elemental. She smiles "
+         "at you and waves you closer. Behind you is a glowing grey portal. On "
+         "the opposite side of the room is a black glowing portal. \n"
+      << endl;
 
-  while(action != "grey" && action != "black" && action != "approach") {
+  while (action != "grey" && action != "black" && action != "approach") {
     cout << "Do you enter a portal?" << endl;
     cout << "Type: grey or black\n" << endl;
-    
+
     cout << "Do you approach the earth elemental?" << endl;
     cout << "Type: approach\n" << endl;
 
@@ -321,23 +371,128 @@ void yellowRoom() {
   }
 }
 
+// DONE
 // Dwarf in room forging a sword
 // You try to speak to the dwarf by he ignores you
-void copperRoom() {}
+void copperRoom() {
+  string action;
 
+  cout << "You arive in a room glowing copper. In the center of the room is an "
+          "dwarf. He's hard at work forge something over his anvil.\n"
+       << endl;
+
+  cout << "What do you do next?" << endl;
+  cout << "Do you enter the red portal?" << endl;
+  cout << "Type: red" << endl;
+  cout << "Do you talk to the dwarf?" << endl;
+  cout << "Type: talk" << endl;
+
+  while (action != "red") {
+    cin >> action;
+    action = strToLowercase(action);
+    if (action == "talk") {
+      cout << "You try to speak with the dwarf but he ignores you." << endl;
+    }
+  }
+  changeLocation(action);
+}
+
+// DONE
 // There is an elf mediating in the center of the room:
 // You try to talk to her but she ignores you
-void silverRoom() {}
+void silverRoom() {
+  string action;
 
+  cout << "You arive in a room glowing silver. In the center of the room is an "
+          "elf mediating. There is a calming aura through the room.\n"
+       << endl;
+
+  cout << "What do you do next?" << endl;
+  cout << "Do you enter the red portal?" << endl;
+  cout << "Type: red" << endl;
+  cout << "Do you talk to the elf?" << endl;
+  cout << "Type: talk" << endl;
+
+  while (action != "red") {
+    cin >> action;
+    action = strToLowercase(action);
+    if (action == "talk") {
+      cout << "You try to speak with the elf but she ignores you." << endl;
+    }
+  }
+  changeLocation(action);
+}
+
+// DONE
 // Outcomes:
 // Dragon eats you for trying to steal treasure
 // Dragon burns you for attacking it with a sword
-// Dragon accepts your heirloom and you become a dragonborn, bonded to the Dragon for life
-void goldRoom() {}
+// Dragon accepts your heirloom and you become a dragonborn, bonded to the
+// Dragon for life
+void goldRoom() {
+  string action;
+  string currentRoom = "gold";
 
+  cout
+      << "You arrive in a room glowing golden. In the center of the room is a "
+         "sleeping dragon. Under the dragon is a pile of gold, gems, and other "
+         "treasures. In your pocket is your heirloom. Not to far from the "
+         "horde of treasure, you notice a sword. Behind you is a red portal.\n"
+      << endl;
+
+  cout << "What do you do next?" << endl;
+  cout << "Do you enter the red portal?" << endl;
+  cout << "Type: red" << endl;
+  cout << "Do you give your heirloom to the dragon?" << endl;
+  cout << "Type: heirloom" << endl;
+  cout << "Do you attack the dragon with the sword?" << endl;
+  cout << "Type: sword" << endl;
+  cout << "Do you steal from the dragons horde?" << endl;
+  cout << "Type: steal" << endl;
+
+  while (action != "red" && action != "heirloom" && action != "sword" &&
+         action != "steal") {
+    cin >> action;
+    action = strToLowercase(action);
+  }
+
+  if (action == "heirloom" || action == "sword" || action == "steal") {
+    doAction(action, currentRoom);
+  } else {
+    changeLocation(action);
+  }
+}
+
+// Done
 // Outcomes:
 // Throw coin in wishing well.
-void whiteRoom() {}
+void whiteRoom() {
+  string action;
+  string currentRoom = "white";
+
+  cout << "You arrive in a room that glows faintly white. In the center of the "
+          "room is a fountain. In the center of the fountain is the statue of "
+          "an angel. In your pocket you have your heirloom. Behind you is a "
+          "blue portal.\n"
+       << endl;
+
+  cout << "What do you do next?" << endl;
+  cout << "Do you enter the blue portal?" << endl;
+  cout << "Type: blue" << endl;
+  cout << "Do you throw your heirloom into the fountain?" << endl;
+  cout << "Type: heirloom" << endl;
+
+  while (action != "blue" && action != "heirloom") {
+    cin >> action;
+    action = strToLowercase(action);
+  }
+
+  if (action == "heirloom") {
+    doAction(action, currentRoom);
+  } else {
+    changeLocation(action);
+  }
+}
 
 // DONE
 // Outcomes:
@@ -347,7 +502,11 @@ void blackRoom() {
   string action;
   string currentRoom = "black";
 
-  cout << "You arrive in a room glowing black. You get an ominous vibe from from the room. Goose bumps sprout on you skin. In your pocket you have your heirloom. In the center of the room is a necromancer. Behind you is a yellow portal.\n" << endl;
+  cout << "You arrive in a room glowing black. You get an ominous vibe from "
+          "from the room. Goose bumps sprout on you skin. In your pocket you "
+          "have your heirloom. In the center of the room is a necromancer. "
+          "Behind you is a yellow portal.\n"
+       << endl;
 
   cout << "What do you do next?" << endl;
   cout << "Do you enter the yellow portal?" << endl;
@@ -355,28 +514,29 @@ void blackRoom() {
   cout << "Do you give the necromancer your heirloom?" << endl;
   cout << "Type: heirloom" << endl;
 
-  while(action != "yellow" && action != "serve" && action != "fight") {
+  while (action != "yellow" && action != "serve" && action != "fight") {
     cin >> action;
     action = strToLowercase(action);
-    if(action == "heirloom") {
+    if (action == "heirloom") {
       cout << "You give the heirloom to the nercomancer. \n" << endl;
-      cout << "\"As a reward you may choose to serve as my minion or fight me for my throne!\" The necromancer roars.\n" << endl;
+      cout << "\"As a reward you may choose to serve as my minion or fight me "
+              "for my throne!\" The necromancer roars.\n"
+           << endl;
       cout << "Type: serve or fight" << endl;
       cin >> action;
       action = strToLowercase(action);
-      if(action != "serve" || action != "fight") {
+      if (action != "serve" || action != "fight") {
         cout << "Try again." << endl;
-          cout << "What do you do next?" << endl;
-          cout << "Do you enter the yellow portal?" << endl;
-          cout << "Type: yellow" << endl;
-          cout << "Do you give the necromancer your heirloom?" << endl;
-          cout << "Type: heirloom" << endl;
-        
+        cout << "What do you do next?" << endl;
+        cout << "Do you enter the yellow portal?" << endl;
+        cout << "Type: yellow" << endl;
+        cout << "Do you give the necromancer your heirloom?" << endl;
+        cout << "Type: heirloom" << endl;
       }
     }
-  } 
-  
-  if(action == "serve" || action == "fight") {
+  }
+
+  if (action == "serve" || action == "fight") {
     doAction(action, currentRoom);
   } else {
     changeLocation(action);
